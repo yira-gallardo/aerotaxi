@@ -11,7 +11,7 @@ interface Photo {
 
 const photos = [
   {
-    src: "/img/img-6.jpEg",
+    src: "/img/img-6.jpeg",
     alt: "Photo 1",
   },
   {
