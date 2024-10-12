@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 interface Photo {
   src: string;
@@ -10,38 +11,14 @@ interface Photo {
 }
 
 const photos = [
-  {
-    src: "/img/img-6.jpeg",
-    alt: "Photo 1",
-  },
-  {
-    src: "/img/img-7.jpeg",
-    alt: "Photo 2",
-  },
-  {
-    src: "/img/img-8.jpeg",
-    alt: "Photo 3",
-  },
-  {
-    src: "/img/img-9.jpeg",
-    alt: "Photo 4",
-  },
-  {
-    src: "/img/img-11.jpeg",
-    alt: "Photo 5",
-  },
-  {
-    src: "/img/img-12.jpeg",
-    alt: "Photo 6",
-  },
-  {
-    src: "/img/img-13.jpeg",
-    alt: "Photo 7",
-  },
-  {
-    src: "/img/gallery-2.jpg",
-    alt: "Photo 8",
-  },
+  { src: "/img/img-6.jpeg", alt: "Photo 1" },
+  { src: "/img/img-7.jpeg", alt: "Photo 2" },
+  { src: "/img/img-8.jpeg", alt: "Photo 3" },
+  { src: "/img/img-9.jpeg", alt: "Photo 4" },
+  { src: "/img/img-11.jpeg", alt: "Photo 5" },
+  { src: "/img/img-12.jpeg", alt: "Photo 6" },
+  { src: "/img/img-13.jpeg", alt: "Photo 7" },
+  { src: "/img/gallery-2.jpg", alt: "Photo 8" },
 ];
 
 export default function Home() {
@@ -70,8 +47,19 @@ export default function Home() {
 
   return (
     <>
-      <nav className="bg-black text-white flex items-center justify-center p-4 h-[80px] text-lg font-bold gap-8 drop-shadow-lg">
-        <Link href="https://adandyou.host/spasa/web/">Reserva</Link>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="fixed top-0 left-0 right-0 z-50 bg-black text-white flex items-center justify-center p-4 h-[80px] text-lg font-bold gap-8 drop-shadow-lg "
+        style={{ fontFamily: "var(--font-outfit)" }}
+      >
+        <Link
+          href="https://adandyou.host/spasa/web/"
+          className="hover:text-[#faea4f] transition-colors duration-300"
+        >
+          Reserva
+        </Link>
         <div className="relative mb-[-80px] w-[120px] h-[120px] bg-white flex justify-center items-center rounded-[50%]">
           <Image
             src="/img/logo-1.png"
@@ -81,11 +69,26 @@ export default function Home() {
             className="mx-4 w-[80px]"
           />
         </div>
-        <Link href="#">Facturación</Link>
-      </nav>
-      <div className="mx-auto">
-        <div className="mx-auto flex flex-col items-center justify-center gap-4 px-4">
-          <div className="w-full sm:w-1/2 mt-16">
+        <Link
+          href="#"
+          className="hover:text-[#faea4f] transition-colors duration-300"
+        >
+          Facturación
+        </Link>
+      </motion.nav>
+      <div className="mx-auto pt-32">
+        <motion.section
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          className="mx-auto flex flex-col items-center justify-center gap-4 px-4 pb-16"
+        >
+          <motion.div
+            className="w-full sm:w-1/2 mt-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
+          >
             <Image
               src="/img/auto.png"
               alt="Banner"
@@ -93,26 +96,196 @@ export default function Home() {
               height={400}
               layout="responsive"
             />
-          </div>
-          <h2 className="text-2xl sm:text-4xl font-bold text-center">
-            ¡Reserva tu auto ahora!
-          </h2>
-          <p className="text-base sm:text-lg text-center">
-            Disfruta de un servicio seguro y eficiente con Aerotaxi
-          </p>
-          <Link
-            href="https://adandyou.host/spasa/web/"
-            className="bg-black text-white p-2 rounded-md font-bold min-w-[150px] sm:min-w-[200px] text-center mb-10"
+          </motion.div>
+          <motion.h2
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.7, duration: 1 }}
+            className="text-2xl sm:text-4xl font-bold text-center"
+            style={{ fontFamily: "var(--font-outfit)" }}
           >
-            Reservar
-          </Link>
-        </div>
-        <section id="galeria" className="bg-stone-100 pt-24 pb-16 text-black">
-          <h2 className="text-5xl font-bold text-center mb-8">NOSOTROS</h2>
+            ¡Reserva tu auto ahora!
+          </motion.h2>
+          <motion.p
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.9, duration: 1 }}
+            className="text-base sm:text-lg text-center"
+          >
+            Disfruta de un servicio seguro y eficiente con Aerotaxi
+          </motion.p>
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 1.1, duration: 1 }}
+          >
+            <Link
+              href="https://adandyou.host/spasa/web/"
+              className="bg-black text-white p-2 font-bold width-[200px] sm:min-w-[200px] text-center mb-10 transition-colors duration-300 hover:text-[#faea4f] border-2 border-black"
+              style={{ fontFamily: "var(--font-outfit)" }}
+            >
+              Reservar
+            </Link>
+          </motion.div>
+        </motion.section>
+        <motion.section
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="bg-[#faea4f] text-white py-32 !text-black"
+        >
+          <h2
+            className="text-5xl font-bold text-center mb-8"
+            style={{ fontFamily: "var(--font-outfit)" }}
+          >
+            Nosotros
+          </h2>
+          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-4">
+            {[
+              {
+                icon: "👤",
+                title: "Conductores Bilingües",
+                description:
+                  "Obtén consejos y recomendaciones de conductores locales que hablan inglés sobre los mejores lugares y atracciones en CDMX.",
+              },
+              {
+                icon: "🛡️",
+                title: "Seguridad en el Viaje",
+                description:
+                  "Vehículos modernos, limpios y cómodos que se desinfectan después de cada viaje para tu tranquilidad.",
+              },
+              {
+                icon: "📞",
+                title: "Soporte 24/7",
+                description:
+                  "Disfruta de asistencia las 24 horas con cambios en la reserva o cualquier pregunta sobre tu taxi desde el Aeropuerto de la Ciudad de México.",
+              },
+              {
+                icon: "📖",
+                title: "Viaje Personalizado",
+                description:
+                  "Accede a una página especial de viaje después de reservar para explorar recorridos por la ciudad, actividades y los mejores lugares para cenar en CDMX.",
+              },
+              {
+                icon: "⏰",
+                title: "Monitoreo de Vuelos",
+                description:
+                  "Los conductores monitorearán tu número de vuelo y estarán esperándote cuando llegues al Aeropuerto de MEX.",
+              },
+              {
+                icon: "💸",
+                title: "Cancelación Flexible",
+                description:
+                  "¿Necesitas cancelar tu viaje? ¡No te preocupes! Cancela o cambia tu reserva sin costo si tus planes cambian.",
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.3, duration: 0.8 }}
+                className="text-center"
+              >
+                <div className="text-4xl mb-4">
+                  <span
+                    role="img"
+                    aria-label={item.title.toLowerCase().replace(" ", "-")}
+                  >
+                    {item.icon}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                <p>{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+        <motion.section
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="bg-white text-black py-16"
+        >
+          <h2
+            className="text-5xl font-bold text-center mb-8"
+            style={{ fontFamily: "var(--font-outfit)" }}
+          >
+            Máxima comodidad y seguridad en tu traslado
+          </h2>
+          <p className="text-center mb-16 text-lg">
+            <span className="inline-block bg-black text-white px-4 py-1 rounded-full">
+              Autos confiables, conductores profesionales
+            </span>
+          </p>
+          <div className="max-w-6xl mx-auto flex justify-center items-center gap-8">
+            {[
+              {
+                name: "Auto Compacto",
+                passengers: "Hasta 4 pasajeros",
+                img: "/img/car.jpg",
+              },
+              {
+                name: "SUV",
+                passengers: "Hasta 6 pasajeros",
+                img: "/img/car.jpg",
+              },
+              {
+                name: "Van",
+                passengers: "Hasta 8 pasajeros",
+                img: "/img/car.jpg",
+              },
+              {
+                name: "Autobús",
+                passengers: "Hasta 16 pasajeros",
+                img: "/img/car.jpg",
+              },
+            ].map((vehicle, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.3, duration: 0.8 }}
+                className="text-center"
+              >
+                <Image
+                  src={vehicle.img}
+                  alt={vehicle.name}
+                  width={200}
+                  height={100}
+                  className="mx-auto mb-4"
+                />
+                <h3 className="text-xl font-bold mb-2">{vehicle.name}</h3>
+                <p>{vehicle.passengers}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+        <motion.section
+          id="galeria"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="bg-stone-100 pt-24 pb-16 text-black"
+        >
+          <h2
+            className="text-5xl font-bold text-center mb-8"
+            style={{ fontFamily: "var(--font-outfit)" }}
+          >
+            Galería
+          </h2>
           <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
             {photos.map((photo, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2, duration: 0.6 }}
                 className={`cursor-pointer transition-transform duration-300 ${
                   enlargedPhoto?.src === photo.src ? "transform scale-150" : ""
                 }`}
@@ -123,10 +296,78 @@ export default function Home() {
                   alt={photo.alt}
                   className="w-full h-full object-cover"
                 />
-              </div>
+              </motion.div>
             ))}
           </div>
-        </section>
+        </motion.section>
+        <motion.section
+          id="reviews"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="bg-white text-black py-16"
+        >
+          <h2
+            className="text-5xl font-bold text-center mb-8"
+            style={{ fontFamily: "var(--font-outfit)" }}
+          >
+            Opiniones de nuestros clientes
+          </h2>
+          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-4">
+            {[
+              {
+                name: "Carlos Pérez",
+                review: "Excelente servicio, muy puntual y profesional.",
+              },
+              {
+                name: "María Gómez",
+                review:
+                  "Los conductores son muy amables y el vehículo estaba impecable.",
+              },
+              {
+                name: "Jorge Ramírez",
+                review:
+                  "Me sentí muy seguro durante todo el viaje. ¡Recomendado!",
+              },
+              {
+                name: "Ana López",
+                review:
+                  "La atención al cliente es de primera, siempre dispuestos a ayudar.",
+              },
+              {
+                name: "Luis Fernández",
+                review: "Reservar fue muy fácil y el servicio fue excelente.",
+              },
+              {
+                name: "Sofía Martínez",
+                review:
+                  "El conductor fue muy profesional y el viaje fue muy cómodo.",
+              },
+            ].map((review, index) => (
+              <motion.div
+                key={index}
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.3, duration: 0.8 }}
+                className="text-center border p-4 rounded-lg shadow-md"
+              >
+                <h3 className="text-xl font-bold mb-2">{review.name}</h3>
+                <div className="text-yellow-500">
+                  {Array(5)
+                    .fill(0)
+                    .map((_, i) => (
+                      <span key={i} role="img" aria-label="star">
+                        ⭐
+                      </span>
+                    ))}
+                </div>
+                <p className="mb-4">{review.review}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
       </div>
       <Link
         href="https://wa.me/tu-numero-de-telefono"
@@ -139,8 +380,7 @@ export default function Home() {
       >
         <Image src="/img/wa-icon.png" alt="WhatsApp" width={50} height={50} />
       </Link>
-
-      <footer className="bg-black text-white py-4 ">
+      <footer className="bg-black text-white py-16">
         <div className="container mx-auto flex justify-center">
           <div className="flex space-x-8">
             <Link
@@ -148,7 +388,7 @@ export default function Home() {
               target="_blank"
               className="flex justify-center items-center gap-2"
             >
-              <div className="text-white hover:text-gray-400">
+              <div className="text-white hover:text-[#faea4f]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -161,7 +401,7 @@ export default function Home() {
               </div>
             </Link>
             <Link href="https://wa.me/1234567890" passHref>
-              <div className="text-white hover:text-gray-400">
+              <div className="text-white hover:text-[#faea4f]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20px"
@@ -174,7 +414,7 @@ export default function Home() {
               </div>
             </Link>
             <Link href="mailto:correo@example.com" passHref>
-              <div className="text-white hover:text-gray-400">
+              <div className="text-white hover:text-[#faea4f]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20px"
@@ -187,7 +427,7 @@ export default function Home() {
               </div>
             </Link>
             <Link href="tel:+1234567890" passHref>
-              <div className="text-white hover:text-gray-400">
+              <div className="text-white hover:text-[#faea4f]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20px"
@@ -201,8 +441,9 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className="text-center mt-4 text-gray-400">
-          &copy; {new Date().getFullYear()} Todos los derechos reservados.
+        <div className="text-center mt-4 text-gray-400 text-sm">
+          &copy; {new Date().getFullYear()} Aerotaxi. Todos los derechos
+          reservados.
         </div>
       </footer>
     </>
