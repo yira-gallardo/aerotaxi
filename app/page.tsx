@@ -11,14 +11,14 @@ interface Photo {
 }
 
 const photos = [
-  { src: "/img/img-6.jpeg", alt: "Photo 1" },
-  { src: "/img/img-7.jpeg", alt: "Photo 2" },
-  { src: "/img/img-8.jpeg", alt: "Photo 3" },
-  { src: "/img/img-9.jpeg", alt: "Photo 4" },
-  { src: "/img/img-11.jpeg", alt: "Photo 5" },
-  { src: "/img/img-12.jpeg", alt: "Photo 6" },
-  { src: "/img/img-13.jpeg", alt: "Photo 7" },
-  { src: "/img/gallery-2.jpg", alt: "Photo 8" },
+  { src: "/img/img-1.jpeg", alt: "Photo 1" },
+  { src: "/img/img-2.jpeg", alt: "Photo 2" },
+  { src: "/img/img-3.jpeg", alt: "Photo 3" },
+  { src: "/img/img-4.jpeg", alt: "Photo 4" },
+  { src: "/img/img-5.jpeg", alt: "Photo 5" },
+  { src: "/img/img-6.jpeg", alt: "Photo 6" },
+  { src: "/img/img-7.jpeg", alt: "Photo 7" },
+  { src: "/img/img-8.jpeg", alt: "Photo 8" },
 ];
 
 export default function Home() {
@@ -207,20 +207,20 @@ export default function Home() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="bg-white text-black py-16"
+          className="bg-white text-black py-8 md:py-16"
         >
           <h2
-            className="text-5xl font-bold text-center mb-8"
+            className="text-3xl md:text-5xl font-bold text-center mb-6 md:mb-8"
             style={{ fontFamily: "var(--font-outfit)" }}
           >
             Máxima comodidad y seguridad en tu traslado
           </h2>
-          <p className="text-center mb-16 text-lg">
+          <p className="text-center mb-12 md:mb-16 text-base md:text-lg">
             <span className="inline-block bg-black text-white px-4 py-1 rounded-full">
               Autos confiables, conductores profesionales
             </span>
           </p>
-          <div className="max-w-6xl mx-auto flex justify-center items-center gap-8">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 justify-center items-center">
             {[
               {
                 name: "Auto Compacto",
@@ -258,12 +258,15 @@ export default function Home() {
                   height={100}
                   className="mx-auto mb-4"
                 />
-                <h3 className="text-xl font-bold mb-2">{vehicle.name}</h3>
+                <h3 className="text-lg md:text-xl font-bold mb-2">
+                  {vehicle.name}
+                </h3>
                 <p>{vehicle.passengers}</p>
               </motion.div>
             ))}
           </div>
         </motion.section>
+
         <motion.section
           id="galeria"
           initial={{ opacity: 0 }}
