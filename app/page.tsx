@@ -55,7 +55,8 @@ export default function Home() {
         style={{ fontFamily: "var(--font-outfit)" }}
       >
         <Link
-          href="https://adandyou.host/spasa/web/"
+          href="https://adandyou.host/reservaciones/views/index.php"
+          target="_blank"
           className="hover:text-[#faea4f] transition-colors duration-300"
         >
           Reserva
@@ -70,7 +71,8 @@ export default function Home() {
           />
         </div>
         <Link
-          href="#"
+          href="https://adandyou.host/spasa/public/"
+          target="_blank"
           className="hover:text-[#faea4f] transition-colors duration-300"
         >
           Facturación
