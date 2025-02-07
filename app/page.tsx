@@ -122,7 +122,8 @@ export default function Home() {
             transition={{ delay: 1.1, duration: 1 }}
           >
             <Link
-              href="https://adandyou.host/spasa/web/"
+              href="https://adandyou.host/reservaciones/views/index.php"
+              target="_blank"
               className="bg-black text-white p-2 font-bold width-[200px] sm:min-w-[200px] text-center mb-10 transition-colors duration-300 hover:text-[#faea4f] border-2 border-black"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
@@ -147,9 +148,9 @@ export default function Home() {
             {[
               {
                 icon: "👤",
-                title: "Conductores Bilingües",
+                title: "Conductores con Licencia Federal",
                 description:
-                  "Obtén consejos y recomendaciones de conductores locales que hablan inglés sobre los mejores lugares y atracciones en CDMX.",
+                  "Viaja con tranquilidad y confianza gracias a nuestro equipo altamente capacitado, comprometido con la seguridad, el profesionalismo y el cumplimiento de todas las regulaciones.",
               },
               {
                 icon: "🛡️",
@@ -177,9 +178,9 @@ export default function Home() {
               },
               {
                 icon: "💸",
-                title: "Cancelación Flexible",
+                title: "Facturación Inmediata",
                 description:
-                  "¿Necesitas cancelar tu viaje? ¡No te preocupes! Cancela o cambia tu reserva sin costo si tus planes cambian.",
+                  "Obtén tu comprobante fiscal de manera ágil y segura. Con nuestro sistema de facturación inmediata, simplificamos tu proceso de pago y te ayudamos a mantener tus finanzas en orden ",
               },
             ].map((item, index) => (
               <motion.div
@@ -230,19 +231,19 @@ export default function Home() {
                 img: "/img/car.jpg",
               },
               {
-                name: "SUV",
-                passengers: "Hasta 6 pasajeros",
-                img: "/img/car.jpg",
+                name: "Suburban",
+                passengers: "Hasta 7 pasajeros",
+                img: "/img/car-2.png",
               },
               {
-                name: "Van",
-                passengers: "Hasta 8 pasajeros",
-                img: "/img/car.jpg",
+                name: "Hiace",
+                passengers: "Hasta 11 pasajeros",
+                img: "/img/car-3.jpg",
               },
               {
-                name: "Autobús",
-                passengers: "Hasta 16 pasajeros",
-                img: "/img/car.jpg",
+                name: "Jac Sunray",
+                passengers: "Hasta 17 pasajeros",
+                img: "/img/car-4.jpg",
               },
             ].map((vehicle, index) => (
               <motion.div
@@ -405,7 +406,7 @@ export default function Home() {
                 </svg>
               </div>
             </Link>
-            <Link href="https://wa.me/1234567890" passHref>
+            <Link href="https://wa.me/5216143906756" passHref>
               <div className="text-white hover:text-[#faea4f]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
