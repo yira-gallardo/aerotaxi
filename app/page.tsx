@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Chatbot from "./components/chatbot";
 
 interface Photo {
   src: string;
@@ -375,7 +376,7 @@ export default function Home() {
           </div>
         </motion.section>
       </div>
-      <Link
+      {/* <Link
         href="https://wa.me/tu-numero-de-telefono"
         target="_blank"
         className="fixed bottom-5 right-5 p-3 rounded-full shadow-lg"
@@ -385,7 +386,7 @@ export default function Home() {
         }}
       >
         <Image src="/img/wa-icon.png" alt="WhatsApp" width={50} height={50} />
-      </Link>
+      </Link> */}
       <footer className="bg-black text-white py-16">
         <div className="container mx-auto flex justify-center">
           <div className="flex space-x-8">
@@ -452,6 +453,8 @@ export default function Home() {
           reservados.
         </div>
       </footer>
+
+      <Chatbot />
     </>
   );
 }
