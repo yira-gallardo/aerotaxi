@@ -23,20 +23,7 @@ const photos = [
 ];
 
 export default function Home() {
-  const [scrollY, setScrollY] = useState(0);
   const [enlargedPhoto, setEnlargedPhoto] = useState<Photo | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   const togglePhotoSize = (photo: Photo) => {
     if (enlargedPhoto?.src === photo.src) {
