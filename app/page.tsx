@@ -298,9 +298,11 @@ export default function Home() {
                 }`}
                 onClick={() => togglePhotoSize(photo)}
               >
-                <img
+                <Image
                   src={photo.src}
                   alt={photo.alt}
+                  width={800}
+                  height={600}
                   className="w-full h-full object-cover"
                 />
               </motion.div>
